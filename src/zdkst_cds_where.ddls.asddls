@@ -1,29 +1,26 @@
-// View Level Annotations
 @AbapCatalog.viewEnhancementCategory: [ #NONE ]
 
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 
-@EndUserText.label: 'CDS First'
+@EndUserText.label: 'Where Clause Example'
 
 @Metadata.ignorePropagatedAnnotations: true
 
-define view entity ZDKST_CDS
-  as select from /dmo/flight // data source, this can also have alias by using as
+define view entity ZDKST_CDS_WHERE
+  as select from /dmo/flight
 
 {
-      // Key Elements
   key carrier_id     as CarrierId,
   key connection_id  as ConnectionId,
   key flight_date    as FlightDate,
 
-      // Element Annotations
-      @Semantics.amount.currencyCode: 'CurrencyCode' // Remove and see what happens
+      @Semantics.amount.currencyCode: 'CurrencyCode'
       price          as Price,
 
       currency_code  as CurrencyCode,
       plane_type_id  as PlaneTypeId,
-      seats_max      as SeatsMax, // Alias
+      seats_max      as SeatsMax,
       seats_occupied as SeatsOccupied
-/* Protected Word example
-    creation_date as date  */
 }
+
+where plane_type_id = '747-400'
