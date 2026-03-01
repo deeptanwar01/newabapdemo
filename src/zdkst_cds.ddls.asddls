@@ -7,6 +7,8 @@
 
 @Metadata.ignorePropagatedAnnotations: true
 
+@Metadata.allowExtensions: true
+
 define view entity ZDKST_CDS
   as select from /dmo/flight // data source, this can also have alias by using as
 
