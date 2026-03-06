@@ -5,9 +5,8 @@
 
 @EndUserText.label: 'CDS First'
 
-@Metadata.ignorePropagatedAnnotations: true
-
 @Metadata.allowExtensions: true
+@Metadata.ignorePropagatedAnnotations: true
 
 define view entity ZDKST_CDS
   as select from /dmo/flight // data source, this can also have alias by using as
@@ -27,5 +26,5 @@ define view entity ZDKST_CDS
       seats_max      as SeatsMax, // Alias
       seats_occupied as SeatsOccupied
 /* Protected Word example
-    creation_date as date  */
+    creation_date as date*/
 }

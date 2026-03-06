@@ -3,6 +3,7 @@
 @AccessControl.authorizationCheck: #NOT_REQUIRED
 
 @EndUserText.label: 'CASE Syntax'
+@Metadata.allowExtensions: true
 
 @Metadata.ignorePropagatedAnnotations: true
 

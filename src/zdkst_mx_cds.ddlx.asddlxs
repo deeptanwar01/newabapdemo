@@ -1,22 +1,30 @@
 @Metadata.layer: #CUSTOMER
+
 annotate entity ZDKST_CDS
-    with 
+    with
+
 {
-@UI.lineItem: [{ position: 10 }] 
-    CarrierId;
-@UI.lineItem: [{ position: 10 }]    
-    ConnectionId;
-@UI.lineItem: [{ position: 10 }]    
-    FlightDate;
-@UI.lineItem: [{ position: 10 }]    
-    Price;
-@UI.lineItem: [{ position: 10 }]    
-    CurrencyCode;
-@UI.lineItem: [{ position: 10 }]    
-    PlaneTypeId;
-@UI.lineItem: [{ position: 10 }]    
-    SeatsMax;
-@UI.lineItem: [{ position: 10 }]    
-    SeatsOccupied;
-    
+  @UI.lineItem: [ { position: 10 } ]
+  CarrierId;
+
+  @UI.lineItem: [ { position: 10 } ]
+  ConnectionId;
+
+  @UI.lineItem: [ { position: 10 } ]
+  FlightDate;
+
+  @UI.lineItem: [ { position: 10 } ]
+  Price;
+
+  @UI.lineItem: [ { position: 10 } ]
+  CurrencyCode;
+
+  @UI.lineItem: [ { position: 10 } ]
+  PlaneTypeId;
+
+  @UI.lineItem: [ { position: 10 } ]
+  SeatsMax;
+
+  @UI.lineItem: [ { position: 10 } ]
+  SeatsOccupied;
 }
