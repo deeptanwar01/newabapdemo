@@ -1,0 +1,11 @@
+@EndUserText.label: 'Access Control Demo'
+@MappingRole: true
+define role ZT2_DCL_ACS_CTRL_BOOKING {
+    grant // We can have multiple grant statements and in each statement we can write our CDS views 
+        select
+            on
+                ZT2_BOOKING_DCL
+                    where
+                        CarrierId <> 'AA';
+                        
+}

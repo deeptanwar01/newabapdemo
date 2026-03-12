@@ -15,7 +15,6 @@ define view entity ZT2_I_CUSTOMER
 
 {
   key customer_id           as CustomerId,
-
       first_name            as FirstName,
       last_name             as LastName,
       title                 as Title,

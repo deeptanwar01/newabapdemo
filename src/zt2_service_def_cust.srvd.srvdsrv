@@ -1,0 +1,4 @@
+@EndUserText.label: 'Service Defi'
+define service ZT2_SERVICE_DEF_CUST {
+  expose ZT2_Custom_Entity as Booking;
+}
