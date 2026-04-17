@@ -1,0 +1,54 @@
+@Metadata.layer: #CUSTOMER
+annotate entity ZT4N_CR_Customer
+    with 
+{
+  @UI.facet: [
+  { 
+  id: 'Customer', 
+  type: #IDENTIFICATION_REFERENCE, 
+  purpose: #STANDARD, 
+  label: 'Customer', 
+  position: 10  
+  }
+  ]
+//  @UI.hidden: true
+
+@UI.lineItem: [{label: 'ID', position: 10  }]
+  @UI.identification: [{ label: 'ID', position: 10 }]
+  Id;
+  
+  @UI.lineItem: [{label: 'First Name', position: 20  }]
+  @UI.identification: [{ label: 'First Name', position: 20  }]
+  FirstName;
+  
+  @UI.lineItem: [{label: 'Last Name', position: 30  }]
+  @UI.identification: [{ label: 'Last Name', position: 30 }]
+  LastName;
+  
+  @UI.lineItem: [{label: 'Email', position: 40  }]
+  @UI.identification: [{ label: 'Email', position: 40  }]
+  Email;
+  
+  @UI.lineItem: [{label: 'Phone No', position: 50  }]
+  @UI.identification: [{ label: 'Phone No', position: 50 }]
+  PhoneNumber;
+
+  /* Actions */
+@UI.lineItem: [
+{ type: #FOR_ACTION, dataAction: 'copy', label: 'Copy', position: 10 },
+{ type: #FOR_ACTION, dataAction: 'CopyFromTemp', label: 'Copy From Template', position: 20 },
+{ type: #FOR_ACTION, dataAction: 'upload', label: 'Upload', position: 30 }
+]
+    
+  @UI.hidden: true
+  LastChangedAt;
+  
+  @UI.hidden: true
+  LocalLastChangedAt;
+  
+  @UI.hidden: true
+  CreatedAt;
+  
+  @UI.hidden: true
+  CreatedBy;   
+}

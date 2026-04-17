@@ -1,0 +1,4 @@
+@EndUserText.label: 'Topic 4 Service Definition for Customer'
+define service ZT4Customer_ServDef {
+  expose ZT4_C_Customer as Customer;
+}

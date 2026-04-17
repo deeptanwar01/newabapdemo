@@ -1,0 +1,16 @@
+projection;
+strict ( 2 );
+use draft;
+
+define behavior for ZT4N_CR_Customer alias Customer
+{
+  use create;
+  use update;
+  use delete;
+
+  use action Activate;
+  use action Discard;
+  use action Edit;
+  use action Resume;
+  use action Prepare;
+}

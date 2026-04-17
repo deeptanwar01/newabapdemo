@@ -1,0 +1,22 @@
+unmanaged implementation in class zbp_t4customerdata unique;
+strict ( 2 );
+// Adding With Draft function
+with draft;
+define behavior for ZT4CustomerData alias Customer
+draft table ZT4CUSTOMER_DR
+late numbering
+lock master
+total etag LastChangedAt
+authorization master ( instance )
+etag master LastChangedAt
+{
+  create ( authorization : global );
+  update;
+  delete;
+  field ( readonly ) Id;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+}

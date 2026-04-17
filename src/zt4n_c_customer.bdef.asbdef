@@ -1,0 +1,55 @@
+// Unmanaged = RAP does NOT automatically save/update/delete data
+// All logic must be written in - zbp_t4n_c_customer
+// unique = ensures one implementation class per BO
+unmanaged implementation in class zbp_t4n_c_customer unique;
+
+/* Enforces stricter syntax and best practices
+   Version 2 = newer RAP rules (recommended)*/
+strict ( 2 );
+
+// Enables draft handling - Users can: Edit without saving; Resume later; Discard changes
+with draft;
+define behavior for ZT4N_C_Customer alias Customer
+//Draft Table Name
+draft table ZT4_CUSTOMER_DT
+
+// We have two Option Early or Late numbering
+early numbering
+
+// Prevents multiple users editing same record. Lock is applied on the root entity
+lock master
+
+// Used for optimistic locking. Checks if entire BO changed. Prevents overwriting someone else's changes
+total etag LastChangedAt
+
+// Implements Instance-level authorization (per record); Global authorization (general access)
+authorization master ( instance, global )
+
+// Used for single record concurrency control, Works at row level
+etag master LocalLastChangedAt
+{
+
+// create requires global auth check and this enabls CUD operations
+  create ( authorization : global );
+  update;
+  delete;
+
+// ID can not be modified, and must be filled
+  field ( readonly ) Id;
+
+//Draft Operation
+  draft action Activate optimized; // Save draft → active data
+  draft action Discard; // Throw away draft changes
+  draft action Edit; // Start editing (creates draft)
+  draft action Resume; // Continue editing existing draft
+  draft determine action Prepare; // Runs logic before edit (e.g., default values)
+
+// Not tied to a specific instance
+  static action upload;
+
+// Creates new instance from existing one
+  factory action copy[1]; //returns exactly one instance
+
+// Creates instance without existing record
+  static factory action CopyFromTemp[1]; //return one
+}

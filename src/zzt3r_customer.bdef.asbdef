@@ -1,0 +1,49 @@
+managed implementation in class ZZT3BP_R_CUSTOMER unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZZT3R_CUSTOMER alias Customer
+persistent table ZZT3CUSTOMER
+extensible
+draft table ZZT3CUSTOMER_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( readonly )
+   UUID,
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+
+  field ( numbering : managed )
+   UUID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  mapping for ZZT3CUSTOMER corresponding extensible
+  {
+    UUID = UUID;
+    BusinessPartner = BUSINESS_PARTNER;
+    FirstName = FIRST_NAME;
+    LastName = LAST_NAME;
+    DateOfBirth = DATE_OF_BIRTH;
+    LocalCreatedBy = LOCAL_CREATED_BY;
+    LocalCreatedAt = LOCAL_CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+}
